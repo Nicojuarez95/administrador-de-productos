@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Product App</title>
+    <title>Productos | La Vasca</title>
+    <link rel="shortcut icon" href="./LaVascaLogo.png" type="image/x-icon">
     <!-- Bootswatch Cosmo Theme -->
     <link
       rel="stylesheet"
@@ -18,7 +19,8 @@
   <body>
     <!-- Navigation -->
     <nav class="navbar navbar-dark bg-dark">
-      <a class="navbar-brand" href="#">Products App</a>
+      <img class="img" src="./LaVascaLogo.png" alt="">
+      <a class="navbar-brand" href="#">Productos La Vasca</a>
     </nav>
 
     <div class="container">
@@ -28,14 +30,14 @@
         <div class="col-md-4">
           <div class="card">
             <div class="card-header">
-              <h4>Add Add A Product</h4>
+              <h4>Agregar producto</h4>
             </div>
             <form id="product-form" class="card-body">
               <div class="form-group">
                 <input
                   type="text"
                   id="name"
-                  placeholder="Product Name"
+                  placeholder="Nombre del producto"
                   class="form-control"
                 />
               </div>
@@ -44,7 +46,7 @@
                   type="number"
                   id="price"
                   step="0.01"
-                  placeholder="Product Price"
+                  placeholder="Precio del producto"
                   class="form-control"
                 />
               </div>
@@ -61,11 +63,20 @@
               </div>
               <input
                 type="submit"
-                value="Save"
+                value="Agregar"
                 class="btn btn-primary btn-block"
               />
             </form>
           </div>
+
+          <form id="search-form">
+            <div class="input-group mb-3">
+              <input type="text" class="form-control" placeholder="Buscar producto por nombre" id="search-input">
+              <div class="input-group-append">
+                <button class="btn btn-primary" type="submit">Buscar</button>
+              </div>
+            </div>
+          </form>
         </div>
 
         <!-- PRODUCTS LIST -->
