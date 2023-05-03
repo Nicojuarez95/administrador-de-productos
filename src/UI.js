@@ -1,8 +1,8 @@
 export class UI {
+
   addHtml(product){
-    const { name, price, year } = product;
+    const { name, price, year, id } = product;
     const productList = document.getElementById("product-list");
-    const id = Date.now().toString();
     const element = document.createElement("div");
     element.setAttribute("id", id);
     element.innerHTML = `
@@ -10,7 +10,7 @@ export class UI {
         <div class="producto">
           <div class="card-objet">
             <strong>Producto</strong>: ${name} -
-            <strong>Precio</strong>: <span class="product-price">${price}</span> - 
+            <strong>Precio</strong>: $<span class="product-price">${price}</span> - 
             <strong>Año</strong>: ${year}
           </div>
           <div class="contbtn">
@@ -25,11 +25,81 @@ export class UI {
       </div>
     `;
     productList.appendChild(element);
+    //BORRAR//
+// Agrega el evento click al botón "Eliminar producto"
+const deleteButton = element.querySelector(".delete-product");
+deleteButton.addEventListener("click", (event) => {
+  const productId = event.target.id;
+  const products = JSON.parse(localStorage.getItem("products")) || [];
+
+  const updatedProducts = products.filter((product) => product.id !== productId);
+  localStorage.setItem("products", JSON.stringify(updatedProducts));
+
+  element.remove();
+  showMessage("Producto eliminado correctamente", "success");
+});
+  //EVENTO AL BOTON EDITAR PRODUCTO//
+    // Agrega el evento click al botón "Editar precio"
+    const editButton = element.querySelector(".edit-product");
+    editButton.addEventListener("click", () => {
+    const priceElement = element.querySelector(".product-price");
+    const inputElement = element.querySelector(".edit-price");
+    const saveButton = element.querySelector(".save-product");
+
+    // Muestra el input para editar el precio y oculta el precio actual
+    inputElement.value = product.price;
+    priceElement.style.display = "none";
+    inputElement.style.display = "inline-block";
+    // Muestra el botón "Guardar" y oculta el botón "Editar precio"
+    saveButton.style.display = "inline-block";
+    editButton.style.display = "none";
+  });
+  
+  function updateLocalStorage(products) {
+    localStorage.setItem("products", JSON.stringify(products));
   }
+  //GUARDAR DESPUES DE EDITAR PRECIO//
+  // Agrega el evento click al botón "Guardar"
+  const saveButton = element.querySelector(".save-product");
+  saveButton.addEventListener("click", () => {
+  const priceElement = element.querySelector(".product-price");
+  const inputElement = element.querySelector(".edit-price");
+  product.price = inputElement.value;
+  product.id = parseInt(element.getAttribute("id")).toString();
+
+  // Actualiza el precio en el elemento HTML correspondiente
+  priceElement.innerHTML = product.price;
+
+  // Oculta el input y muestra el precio actual
+  inputElement.style.display = "none";
+  priceElement.style.display = "inline-block";
+  // Oculta el botón "Guardar" y muestra el botón "Editar precio"
+  saveButton.style.display = "none";
+  const editButton = element.querySelector(".edit-product");
+  editButton.style.display = "inline-block";
+  // Obtiene los productos del LocalStorage
+  let products = JSON.parse(localStorage.getItem("products"));
+
+  // Busca el producto correspondiente y actualiza su precio
+  products = products.map((p) => {
+    if (p.name === product.name && p.year === product.year) {
+      return product;
+    }
+    return p;
+  });
+  // Actualiza el LocalStorage con los nuevos precios
+  updateLocalStorage(products);
+});
+}
+
+
+
+
+
   addProduct(product) {
     const { name, price, year } = product;
     const productList = document.getElementById("product-list");
-    const id = Date.now().toString();
+    const id = product.id || Date.now().toString();
     const element = document.createElement("div");
     element.setAttribute("id", id);
     element.innerHTML = `
@@ -112,7 +182,7 @@ export class UI {
 
   // Obtiene los productos del LocalStorage
   let products = JSON.parse(localStorage.getItem("products"));
-
+  
   // Busca el producto correspondiente y actualiza su precio
   products = products.map((p) => {
     if (p.name === product.name && p.year === product.year) {
@@ -133,10 +203,9 @@ const deleteButton = element.querySelector(".delete-product");
 deleteButton.addEventListener("click", (element) => {
   deleteProduct(element)
   // element.remove();
-  this.showMessage("Producto eliminado correctamente", "success");
+  showMessage("Producto eliminado correctamente", "success");
 })
 }
-
 deleteProduct(element) {
   if (element.name === "delete") {
     const productCard = element.parentElement.parentElement.parentElement;
@@ -157,6 +226,7 @@ deleteProduct(element) {
     productCard.remove();
   }
 }
+
 
 
 

@@ -38,3 +38,6 @@
     display: flex;
     gap: 5px;
 }
+.card{
+    margin-top: -20px;
+}
