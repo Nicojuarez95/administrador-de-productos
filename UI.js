@@ -55,6 +55,7 @@ deleteButton.addEventListener("click", (event) => {
     editButton.style.display = "none";
   });
   
+  
   function updateLocalStorage(products) {
     localStorage.setItem("products", JSON.stringify(products));
   }
@@ -107,7 +108,7 @@ deleteButton.addEventListener("click", (event) => {
         <div class="producto">
           <div class="card-objet">
             <strong>Producto</strong>: ${name} -
-            <strong>Precio</strong>: <span class="product-price">${price}</span> - 
+            <strong>Precio</strong>: $<span class="product-price">${price}</span> - 
             <strong>Año</strong>: ${year}
           </div>
           <div class="contbtn">
