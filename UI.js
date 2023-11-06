@@ -92,7 +92,6 @@ deleteButton.addEventListener("click", (event) => {
   updateLocalStorage(products);
 });
 }
-
   addProduct(product) {
     const { name, price, year } = product;
     const productList = document.getElementById("product-list");
