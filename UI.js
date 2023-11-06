@@ -221,7 +221,6 @@ deleteProduct(element) {
 }
 
 
-
 /**
    * Reset Form Values
    */
