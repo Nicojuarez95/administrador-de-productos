@@ -94,7 +94,6 @@ deleteButton.addEventListener("click", (event) => {
 }
 
 
-
   addProduct(product) {
     const { name, price, year } = product;
     const productList = document.getElementById("product-list");
