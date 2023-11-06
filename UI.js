@@ -203,7 +203,6 @@ deleteButton.addEventListener("click", (element) => {
 deleteProduct(element) {
   if (element.name === "delete") {
     const productCard = element.parentElement.parentElement.parentElement;
-    console.log(productCard)
     if (!productCard) {
       return; // salimos de la función si no hay productCard
     }
