@@ -152,7 +152,6 @@ deleteButton.addEventListener("click", (event) => {
   }
 
 
-
   //GUARDAR DESPUES DE EDITAR PRECIO//
   
   // Agrega el evento click al botón "Guardar"
