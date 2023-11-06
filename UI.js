@@ -151,7 +151,6 @@ deleteButton.addEventListener("click", (event) => {
     localStorage.setItem("products", JSON.stringify(products));
   }
 
-
   //GUARDAR DESPUES DE EDITAR PRECIO//
   
   // Agrega el evento click al botón "Guardar"
