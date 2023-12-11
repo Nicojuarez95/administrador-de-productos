@@ -15,7 +15,6 @@ document
   .addEventListener("submit", function (e) {
     e.preventDefault();
 
-    // Getting Form Values
     const name = document.getElementById("name").value,
       price = document.getElementById("price").value,
       year = document.getElementById("year").value;
