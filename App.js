@@ -13,7 +13,6 @@ callAddProduct()
 document
   .getElementById("product-form")
   .addEventListener("submit", function (e) {
-    // Override the default Form behaviour
     e.preventDefault();
 
     // Getting Form Values
