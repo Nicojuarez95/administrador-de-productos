@@ -19,7 +19,6 @@ document
       price = document.getElementById("price").value,
       year = document.getElementById("year").value;
 
-    // Input User Validation
     if (name === "" || price === "" || year === "") {
       const ui = new UI();
       ui.showMessage("Por favor ingrese todos los datos", "danger");
