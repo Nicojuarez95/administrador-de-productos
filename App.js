@@ -22,7 +22,7 @@ document
     if (name === "" || price === "" || year === "") {
       const ui = new UI();
       ui.showMessage("Por favor ingrese todos los datos", "danger");
-      return; // No crea un nuevo producto si hay campos vacíos
+      return; 
     }
 
     const product = new Product(name, price, year);
