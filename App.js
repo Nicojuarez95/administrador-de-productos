@@ -26,7 +26,6 @@ document
     }
 
     const product = new Product(name, price, year);
-
     const ui = new UI();
 
     ui.addProduct(product);
