@@ -30,7 +30,6 @@ document
 
     const ui = new UI();
 
-    // Save Product
     ui.addProduct(product);
     ui.showMessage("Producto agregado correctamente", "success");
     ui.resetForm();
