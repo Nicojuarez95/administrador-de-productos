@@ -25,7 +25,6 @@ document
       return; // No crea un nuevo producto si hay campos vacíos
     }
 
-    // Create a new Oject Product
     const product = new Product(name, price, year);
 
     const ui = new UI();
