@@ -34,7 +34,6 @@ document
     ui.resetForm();
   });
 
-// Evento click del botón de eliminación
 document
   .getElementById("product-list")
   .addEventListener("click", (event) => {
