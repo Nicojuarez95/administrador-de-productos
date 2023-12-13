@@ -28,7 +28,6 @@ document
     // Create a new Oject Product
     const product = new Product(name, price, year);
 
-    // Create a new UI instance
     const ui = new UI();
 
     // Save Product
